@@ -1,0 +1,1 @@
+SELECT ch.ID FROM cheque ch INNER JOIN client c ON c.ID = ch.debtor_id WHERE ch.status = 0 AND c.national_code = %s;
