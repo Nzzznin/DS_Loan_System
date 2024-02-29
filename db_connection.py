@@ -44,5 +44,5 @@ def database_connection():
         return None
 
 
-if __name__ == "__main__":
-    db_connection_result = database_connection()
+# if __name__ == "__main__":
+#     db_connection_result = database_connection()
