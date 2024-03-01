@@ -50,17 +50,17 @@ function checkingInstallmentByNationalCode(nationalCode) {
     });
 }
 
-// Create readline interface
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-// Ask user for input
-rl.question('Enter national code: ', (nationalCode) => {
-  // Close readline interface
-  rl.close();
-
-  // Call the function with user input
-  checkingInstallmentByNationalCode(nationalCode);
-});
+// // Create readline interface
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+//
+// // Ask user for input
+// rl.question('Enter national code: ', (nationalCode) => {
+//   // Close readline interface
+//   rl.close();
+//
+//   // Call the function with user input
+//   checkingInstallmentByNationalCode(nationalCode);
+// });
