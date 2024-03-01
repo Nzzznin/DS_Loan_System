@@ -12,7 +12,7 @@ def checking_national_code(national_code):
             else:
                 return False
     except Exception as e:
-        print("An error occurred while checking : " + str(e))
+        print("An error occurred while checking : " ,e)
         return None
 
 
@@ -61,5 +61,4 @@ def check(national_code):
         return 'National Code Not Found'
 
 
-# if __name__ == "__main__":
-#     print(check('0690776225'))
+
