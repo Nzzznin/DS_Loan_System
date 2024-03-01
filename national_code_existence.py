@@ -26,7 +26,3 @@ def checking_national_code_existence(national_code):
         # Handle any exceptions that occur during database operations
         print("An error occurred:", e)
         return None
-
-
-if __name__ == "__main__":
-    print(checking_national_code_existence('0690776225'))

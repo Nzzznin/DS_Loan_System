@@ -33,10 +33,10 @@ def database_connection():
         )
         if connection:
             logging.info("Connected to database")
-            print("Connected to database")
+            # print("Connected to database")
         else:
             logging.error("Failed to connect to database")
-            print("Failed to connect to database")
+            # print("Failed to connect to database")
         return connection
     except Exception as e:
         logging.error("An error occurred while connecting to the database: %s", e)
