@@ -22,11 +22,19 @@ function checkingInstallmentByNationalCode(nationalCode) {
       const sql = fs.readFileSync('D:\\\\Projects\\\\DS_Project\\\\DS1\\\\DS_Loan_Sytem\\\\db\\\\checking_installment.sql', 'utf-8');
       client.query(sql, [nationalCode])
         .then(res => {
-          // Extract ID values from the result rows
-          const ids = res.rows.map(row => row.id);
+            // Extract ID values from the result rows
+            const ids = res.rows.map(row => row.id);
 
-          console.log('Query results:', ids);
-
+            if (ids.length > 0) {
+                console.log('Query results:', ids);
+                return ids;
+            } else {
+                console.log('No results found for the given national code.');
+                return 'No';
+            }
+        })
+        .catch(err => console.error('Error executing query:', err))
+        .finally(() => {
           // Close the connection when done
           client.end()
             .then(() => {
@@ -35,25 +43,24 @@ function checkingInstallmentByNationalCode(nationalCode) {
             .catch((err) => {
               console.error('Error closing connection', err);
             });
-        })
-        .catch(err => console.error('Error executing query:', err));
+        });
     })
     .catch((err) => {
       console.error('Error connecting to PostgreSQL database', err);
     });
 }
 
-// // Create readline interface
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
-//
-// // Ask user for input
-// rl.question('Enter national code: ', (nationalCode) => {
-//   // Close readline interface
-//   rl.close();
-//
-//   // Call the function with user input
-//   checkingInstallmentByNationalCode(nationalCode);
-// });
+// Create readline interface
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// Ask user for input
+rl.question('Enter national code: ', (nationalCode) => {
+  // Close readline interface
+  rl.close();
+
+  // Call the function with user input
+  checkingInstallmentByNationalCode(nationalCode);
+});
