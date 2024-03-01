@@ -1,4 +1,19 @@
 from db_connection import database_connection
+from national_code_existence import checking_national_code_existence
+
+
+def checking_national_code(national_code):
+    try:
+        connection = database_connection()
+        if connection:
+            result_check_national_code = checking_national_code_existence(national_code)
+            if result_check_national_code == national_code:
+                return True
+            else:
+                return False
+    except Exception as e:
+        print("An error occurred while checking : " + str(e))
+        return None
 
 
 def checking_cheque(national_code):
@@ -38,5 +53,13 @@ def checking_cheque(national_code):
         return None
 
 
+def check(national_code):
+    check_result = checking_national_code(national_code)
+    if check_result:
+        return checking_cheque(national_code)
+    else:
+        return 'National Code Not Found'
+
+
 # if __name__ == "__main__":
-#     checking_cheque('0690776225')
+#     print(check('0690776225'))
