@@ -40,10 +40,10 @@ def checking_cheque(national_code):
                 # Iterate through the result and append cheque IDs to the list
                 for Cheque in result:
                     Cheque_list.append(Cheque[0])
-                print(Cheque_list)
+                # print(Cheque_list)
 
                 connection.close()
-                print("Connection closed")
+                # print("Connection closed")
 
                 return Cheque_list
 

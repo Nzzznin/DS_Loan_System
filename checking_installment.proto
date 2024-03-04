@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package checking_installment;
+
+message CheckInstallmentRequest {
+  string national_code = 1;
+}
+
+message CheckInstallmentResponse {
+  repeated int32 ids = 1;
+  string message = 2;
+}
+
+service CheckingInstallmentService {
+  rpc CheckInstallment(CheckInstallmentRequest) returns (CheckInstallmentResponse);
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package checking_cheque;
+
+message ChequeResponse {
+    repeated int32 cheque_ids = 1;
+    string message = 2;
+}
+
+service ChequeService {
+    rpc Check(CheckRequest) returns (ChequeResponse);
+}
+
+message CheckRequest {
+    string national_code = 1;
+}
