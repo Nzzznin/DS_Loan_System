@@ -24,7 +24,7 @@ class ChequeServicer(checking_cheque_pb2_grpc.ChequeServiceServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     checking_cheque_pb2_grpc.add_ChequeServiceServicer_to_server(ChequeServicer(), server)
-    server.add_insecure_port('[::1]:50051')
+    server.add_insecure_port('0.0.0.0:50051')
     server.start()
     print('Server started listening on port 50051...')
     server.wait_for_termination()

@@ -1,4 +1,3 @@
-const readline = require('readline');
 const { Client } = require('pg');
 const fs = require('fs');
 const { connectToDatabase } = require('./db_connection.js');

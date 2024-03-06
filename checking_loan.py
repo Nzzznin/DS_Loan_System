@@ -11,7 +11,7 @@ def installment(national_code):
 
 
 def cheque(national_code):
-    channel = grpc.insecure_channel('[::1]:50051')
+    channel = grpc.insecure_channel('0.0.0.0:50051')
     stub = checking_cheque_pb2_grpc.ChequeServiceStub(channel)
     response = stub.Check(checking_cheque_pb2.CheckRequest(national_code=national_code))
     if response.cheque_ids:
