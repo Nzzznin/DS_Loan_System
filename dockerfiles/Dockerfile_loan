@@ -1,0 +1,21 @@
+# Use the official Python image as a base image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Install gRPC and any other dependencies
+RUN pip install grpcio grpcio-tools
+
+# Copy the protobuf generated files
+COPY checking_cheque_pb2.py checking_cheque_pb2_grpc.py ./
+
+# Copy the Python script into the container at /app
+COPY checking_loan.py .
+
+# Expose the port that your application listens on
+EXPOSE 8001
+EXPOSE 50051
+
+# Run the Python script when the container launches
+CMD ["python", "checking_loan.py"]
