@@ -24,14 +24,12 @@ def check_loan(national_code):
     installment_response = None
     try:
         installment_response = installment(national_code)
-        print('installment success')
     except Exception as e:
         print('installment failed', e)
 
     cheque_response = None
     try:
         cheque_response = cheque(national_code)
-        print('cheque success')
     except Exception as e:
         print('cheque failed', e)
 
