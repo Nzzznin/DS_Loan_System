@@ -1,0 +1,29 @@
+version: v3
+services:
+  loan:
+    build:
+      dockerfile: ./dockerfiles/Dockerfile_loan
+    depends_on:
+      - installment
+      - cheque
+  installment:
+    build:
+      dockerfile: ./dockerfiles/Dockerfile_installment
+    environment:
+      DB_USER: "test"
+      DB_PASSWORD: "test"
+      DB_HOST: "db"
+      DB_PORT: 5432
+      DB_NAME: "test"
+  cheque:
+    build:
+      dockerfile: ./dockerfiles/Dockerfile_Cheque
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
