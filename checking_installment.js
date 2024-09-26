@@ -75,7 +75,7 @@ function check(nationalCode) {
 }
 
 var xmlrpc = require('xmlrpc');
-const server = xmlrpc.createServer({ host: 'localhost', port: 8001 });
+const server = xmlrpc.createServer({ host: '0.0.0.0', port: 8001 });
 
 server.on('check', function (err, params, callback) {
     const [nationalCode] = params; // Extracting nationalCode from params array
